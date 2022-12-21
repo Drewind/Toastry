@@ -1,0 +1,4 @@
+3f74813b-076b-4a25-938d-bf7be1c5d74a,Sauce Selection,0.0,true,LIST
+8fb2d664-3d60-40c4-9e7c-da6b8e3c0c35,Extra Sauce,0.0,false,BOOLEAN
+b973bf5a-c1c4-4c6c-a5f7-c77bebdcb198,Spicy Level,0.0,false,LIST
+df1776a6-c4e6-4efa-abd3-7da2b7c2b991,Salt Choice,0.0,false,LIST

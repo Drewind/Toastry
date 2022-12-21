@@ -1,0 +1,10 @@
+4c5749e4-7363-4aef-a396-a030aea9899f,3f74813b-076b-4a25-938d-bf7be1c5d74a,Mild
+e1b1e4e2-a467-462b-a238-2b735be804e5,3f74813b-076b-4a25-938d-bf7be1c5d74a,BBQ
+e65fa862-2740-47aa-930a-52b693586119,3f74813b-076b-4a25-938d-bf7be1c5d74a,Nashville Hot
+hj3mr2v5-2rqi-jgay-jufr-283p7ylovn6t,b973bf5a-c1c4-4c6c-a5f7-c77bebdcb198,Not Spicy
+8a4vo12p-dt01-0j23-ge68-534w2wtxjlc6,b973bf5a-c1c4-4c6c-a5f7-c77bebdcb198,A Little Spicy
+hh08n5ps-0337-2f3j-rxb6-wif3a77530s1,b973bf5a-c1c4-4c6c-a5f7-c77bebdcb198,Burn my Tongue SPICY
+y41b0t6o-l83v-pi28-e366-5511vv356lr8,b973bf5a-c1c4-4c6c-a5f7-c77bebdcb198,My Tongue is Actually On Fire
+5pt7g1r7-65cn-488y-70ld-p8ksgv288v05,df1776a6-c4e6-4efa-abd3-7da2b7c2b991,Sea Salt
+6hf0q12u-pff3-h5yc-5j1w-r337keo16ba2,df1776a6-c4e6-4efa-abd3-7da2b7c2b991,Generic Store Brand
+7bc32xt3-07c4-24xm-ol6w-310d7ahq36m8,df1776a6-c4e6-4efa-abd3-7da2b7c2b991,Freshly Mined From the Ocean
