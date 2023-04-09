@@ -3,7 +3,6 @@ package Views.POS.Partials;
 import Controllers.PointOfSalesController;
 import Controllers.ViewActionInterface;
 import Entities.Product;
-import Entities.CheckLineItem;
 import Entities.ProductVariantSelected;
 import Graphics.Factories.ButtonFactory;
 import Graphics.Builders.TextLabelBuilder;
@@ -13,7 +12,6 @@ import Views.PointSalesAction;
 import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 
 public class MenuItemPartial extends JPanel {
@@ -32,11 +30,6 @@ public class MenuItemPartial extends JPanel {
         this.viewAction = (PointSalesAction) viewAction;
         this.product = product;
 
-        // Set the dimension for this object so that when we render it, the size won't change in the scroll box.
-        Dimension PANEL_SIZE = new Dimension(85, 85);
-        super.setMinimumSize(PANEL_SIZE);
-        super.setPreferredSize(PANEL_SIZE);
-        super.setMaximumSize(PANEL_SIZE);
         init(menuItemName, menuItemQuantity, menuItemPrice);
 
         add(this.clickablePane, BorderLayout.CENTER);

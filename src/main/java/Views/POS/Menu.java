@@ -21,9 +21,16 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.util.List;
 
+import static javax.swing.ScrollPaneConstants.*;
+
 public class Menu extends JPanel {
     private JScrollPane scrollPanel;
-    private final JPanel itemContainer = new JPanel(new GridLayout(0, 3, 30, 30));
+
+    private GridLayout gridLayout = new GridLayout(0, 2, 30, 30);
+    private final JPanel itemContainer = new JPanel(gridLayout) {{
+        setBackground(Styler.CONTAINER_BACKGROUND.brighter());
+        setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    }};
     private final List<Product> products;
     private final PointOfSalesController controller;
     private final PointSalesAction viewAction;
@@ -56,17 +63,29 @@ public class Menu extends JPanel {
     }
 
     public JPanel createNavbar() {
-        return new MenuNavbar();
+        return new MenuNavbar(this, controller);
     }
 
     public void createMenuOfferings() {
-        this.scrollPanel = new ModernScrollBar(this.itemContainer);
-
-        this.itemContainer.setBackground(Styler.CONTAINER_BACKGROUND.brighter());
-        this.itemContainer.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        // While this does work, it's not exactly good practice setting dimensions like this. Will come back and fix it later
+        Dimension testDimensions = new Dimension(100, 700);
+        this.itemContainer.setPreferredSize(testDimensions);
+        this.itemContainer.setMinimumSize(testDimensions);
+        this.itemContainer.setMaximumSize(testDimensions);
+        this.scrollPanel = new ModernScrollBar(this.itemContainer, VERTICAL_SCROLLBAR_AS_NEEDED, HORIZONTAL_SCROLLBAR_NEVER);
 
         for (Product product : this.products) {
             this.itemContainer.add(new MenuItemPartial(controller, viewAction, product, product.getProductName(), "5", "7"));
         }
+    }
+
+    public void switchToFourSquares() {
+        this.gridLayout.setColumns(2);
+        this.itemContainer.revalidate();
+    }
+
+    public void switchToNineSquares() {
+        this.gridLayout.setColumns(3);
+        this.itemContainer.revalidate();
     }
 }

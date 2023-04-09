@@ -19,4 +19,8 @@ List of Views:
 
 Will continue to update this project in the future. Feel free to fork this project.
 
+
+## Credits
 Logo created using [Adobe Express](https://www.adobe.com/express/create/logo).
+
+Food icons sourced from [Caprese icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/caprese)
