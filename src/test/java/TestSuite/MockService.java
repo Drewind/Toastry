@@ -1,14 +1,11 @@
 package TestSuite;
 
-import Entities.Product;
-import Entities.ProductCategory;
-import Entities.ProductVariant;
+import Entities.*;
 import Services.IDGenerator;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.NumberFormat;
-import java.util.Locale;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -39,6 +36,21 @@ public class MockService {
             "Bikini Float"
     };
 
+    private final static String[] RANDOM_VARIANT_OPTIONS = {
+            "Extra Spicy",
+            "Mild",
+            "On The Sauce",
+            "Hot Hot Hot",
+            "Rare",
+            "Medium",
+            "Well Done",
+            "No Peanuts",
+            "Tomatoes",
+            "Dark Blend",
+            "Light Blend",
+            "Heart-Healthy",
+    };
+
     /**
      * Returns a random name for products.
      * @return String
@@ -55,6 +67,10 @@ public class MockService {
         }
 
         return name;
+    }
+
+    public static String randomizeVariantOption() {
+        return RANDOM_VARIANT_OPTIONS[ThreadLocalRandom.current().nextInt(0, RANDOM_VARIANT_OPTIONS.length)];
     }
 
     public static String randomString() {
@@ -117,15 +133,26 @@ public class MockService {
 
     public static Product randomizeProduct() {
         return new Product(IDGenerator.generateGUID()) {{
-            setTotalRevenue(randomDouble());
-            setTotalExpenses(randomDouble());
+            setTotalRevenue(randomCurrency());
+            setTotalExpenses(randomCurrency());
             setTotalSales(randomInt());
             setCategory(randomizeProductCategory());
             setName(randomizeProductName());
-            setCost(randomDouble());
-            setPrice(randomDouble());
+            setCost(randomCurrency());
+            setPrice(randomCurrency());
             setOriginalData(serialize());
+            setVariants(Arrays.asList(randomizeVariant()));
         }};
+    }
+
+    public static ProductVariantSelected randomizeProductVariantSelected(final Product product) {
+        ProductVariant randomVariant = product.getVariants().get(MockService.randomInt(0, product.getVariants().size()));
+        ProductVariantOption randomVariantOption = randomVariant.getSelectionOptions().get(MockService.randomInt(0, randomVariant.getSelectionOptions().size()));
+        return new ProductVariantSelected(
+                product,
+                randomVariant,
+                randomVariantOption
+        );
     }
 
     public static ProductVariant randomizeVariant() {
@@ -134,6 +161,14 @@ public class MockService {
             setVariantCost(randomCurrency());
             setSelectionRequired(randomBoolean());
             setSelectionType(randomString());
+            setSelectionOptions(Arrays.asList(randomizeVariantOption(this)));
         }};
+    }
+
+    private static ProductVariantOption randomizeVariantOption(final ProductVariant variant) {
+        return new ProductVariantOption(
+                variant,
+                randomizeVariantOption()
+        );
     }
 }
